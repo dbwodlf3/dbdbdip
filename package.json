@@ -14,5 +14,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dbwodlf3/sqldoc.git"
+  },
+  "devDependencies": {
+    "lit-html": "^2.0.0",
+    "ts-node": "^10.2.1"
+  },
+  "dependencies": {
+    "nunjucks": "^3.2.3"
   }
 }
