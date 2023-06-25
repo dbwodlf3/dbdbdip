@@ -7,7 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx ts-node ./scripts/start",
+    "start:dev": "npx ts-node ./scripts/start-watch"
   },
   "author": "Cogi",
   "license": "MIT",
@@ -17,9 +19,15 @@
   },
   "devDependencies": {
     "lit-html": "^2.0.0",
-    "ts-node": "^10.2.1"
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "nunjucks": "^3.2.3"
+    "@types/express": "^4.17.17",
+    "@types/morgan": "^1.9.4",
+    "@types/nunjucks": "^3.2.2",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nunjucks": "^3.2.4"
   }
 }
