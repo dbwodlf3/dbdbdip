@@ -94,3 +94,7 @@ export class CommentParser {
         return inputString.inputText;
     }
 }
+
+export const MongooseParser = {
+    
+}

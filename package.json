@@ -8,8 +8,10 @@
   },
   "scripts": {
     "test": "jest --config ./test/unit/jest-unit.json",
-    "start": "npx ts-node ./scripts/start",
-    "start:dev": "npx ts-node ./scripts/start-watch"
+    "build:client": "",
+    "build:client:watch": "npx ts-node ./scripts/build-watch.client",
+    "start:server": "npx ts-node ./scripts/start",
+    "start:server:watch": "npx ts-node ./scripts/start-watch"
   },
   "author": "Cogi",
   "license": "MIT",

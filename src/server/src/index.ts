@@ -31,7 +31,7 @@ app.use('/static/img', express.static(path.join(settings.serverRoot, 'static', '
 app.use('/static/assets', express.static(path.join(settings.serverRoot, 'static', 'assets')));
 
 app.get("/", (req, res)=>{
-    return res.render("index.njk")
+    return res.render("index.html")
 })
 
 
