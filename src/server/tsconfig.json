@@ -2,7 +2,10 @@
     "compilerOptions": {
         "resolveJsonModule": true,
         "target": "ES5",
-        "lib": ["ES2020", "DOM"],
+        "lib": [
+            "ES2020",
+            "DOM"
+        ],
         "module": "CommonJS",
         "inlineSourceMap": true,
         "rootDir": "./",
@@ -15,7 +18,8 @@
         "forceConsistentCasingInFileNames": true,
         "downlevelIteration": true
     },
-    "include":["./**/*.ts"],
-    "exclude": [
-    ]
+    "include": [
+        "./**/*.ts"
+    ],
+    "exclude": []
 }
