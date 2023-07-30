@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+// import fs from "fs";
+// import path from "path";
 import {
     COMMENT_SYMBOL_LIST,
     ParsedCommentSymbol,
@@ -10,8 +10,8 @@ import {
     TableDocument,
 } from "./types/common";
 
-export function parseCommentTable(input: ParserInputParameter) {
-    const strings = getRawStrings(input);
+export function parseCommentTable(input: string) {
+    const strings = input;
     const comments: ParsedCommentSymbol[] = [];
 
     const result: TableDocument[] = [];
@@ -199,17 +199,4 @@ function prepareComments(inputString: string) {
     }
 
     return _comments;
-}
-
-// Helper
-function getRawStrings(inputString: ParserInputParameter) {
-    if (inputString.inputFilePath) {
-        const filePath = path.resolve(
-            inputString.callerFilePath || "",
-            inputString.inputFilePath
-        );
-        return fs.readFileSync(filePath, "utf-8");
-    }
-
-    return inputString.inputText;
 }
