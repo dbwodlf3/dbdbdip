@@ -2,7 +2,11 @@ CREATE DATABASE SqldocExampleDatabase DEFAULT CHARACTER SET = 'utf8' COLLATE= 'u
 use SqldocExampleDatabase;
 
 /**
- * @table [InnoDB] User This table is user Table.
+ * @table [InnoDB] User
+ * This table is user Table.
+ * This table is only for user. Never use in another service.
+ * Only Read. but Only write in User Service.
+ *
  * @tableColumn {BIGINT UNSIGNED} [PRIMARY KEY, AUTO_INCREMENT]		id 
  * This is just for clustred index. don't use for relation.
  * later this database will be sharded.

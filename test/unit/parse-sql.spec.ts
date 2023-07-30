@@ -1,13 +1,12 @@
-import { CommentParser } from "../../src/lib/parser/comment_parser";
+import { parseCommentTable } from "../../src/lib/parser/comment_parser";
 
-describe("Parsing SQL", ()=>{
+describe("Parsing SQL", () => {
     it("Should parse a sql file", async () => {
-        const parser = new CommentParser();
-        const comments = parser.parsing({
-            inputFilePath: "../example/sqls/table-example.sql", 
-            callerFilePath: __dirname
-        })
+        const parsed_table = parseCommentTable({
+            inputFilePath: "../example/sqls/table-example.sql",
+            callerFilePath: __dirname,
+        });
 
-        console.log(comments);
-    })
+        expect(parsed_table.length).toEqual(2);
+    });
 });

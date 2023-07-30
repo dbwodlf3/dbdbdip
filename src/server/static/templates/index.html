@@ -1,3 +1,80 @@
-<h1>
-  Hello World.
-</h1>
+<div style="display:flex; min-height:100%;">
+  <div style="flex-grow:1; max-width:180px;">
+    Sidebar
+  </div>
+
+  <div style="display:flex; flex-grow:1; flex-direction: column;">
+    <div>
+      <h1> Documentation Based Database Docs </h1>
+    </div>
+
+    <div style="flex-grow:1;">
+      <div style="display:flex;">
+        <!-- Table Description -->
+        <div style="flex-grow:1;">
+          <div style="padding-bottom: 32px;">
+            <!-- Table Description -->
+            <div style="font-size: 2em; padding-bottom:16px;">User</div>
+            <div style="padding-left: 8px;">
+              This table is only for user. Never use in another service. only read.<br>
+              But only write in user services.
+            </div>
+          </div>
+
+          <div style="padding-bottom: 32px;">
+            <!-- Fields Header -->
+            <div style="font-size: 2em; padding-bottom:16px;">Fields</div>
+            <!-- Field Description Component -->
+            <div style="padding-left: 8px;">
+              <!-- Field Description Header -->
+              <div style="padding-bottom:8px;">
+                <div style="font-size:1.5em;"> id </div>
+                <div style="font-size:0.9em;">
+                  <span class="col-label">BIGINT(24)</span>
+                  <span class="col-label">UNSIGNED</span>
+                  <span class="col-label">PRIMARY KEY</span>
+                  <span class="col-label">AUTO_INCREMENT</span>
+                </div>
+
+
+
+              </div>
+              <div>
+                This is just for clustred index. don't use for relation.<br>
+                later this database will be sharded
+              </div>
+            </div>
+            <div style="display:flex;">
+
+            </div>
+
+          </div>
+
+        </div>
+        <!-- Table Details -->
+        <div style="flex-grow:1; max-width: 540px;">
+          <div>
+            Table References
+          </div>
+          <div>
+            ERD Table Example
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      footer
+    </div>
+  </div>
+
+</div>
+
+<style>
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+</style>
+
+<script src="/static/js/index.js"></script>
