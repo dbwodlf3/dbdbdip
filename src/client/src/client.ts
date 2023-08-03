@@ -1,13 +1,16 @@
-import { TableDocument, TableFieldDocument } from "component/table";
+import { WordCount } from "component/table";
 import { parseCommentTable } from "../../lib/parser/comment_parser";
 import { exampleStrings } from "../test/example/sql";
 
-let tableDoc = document.createElement("table-document");
+const SidebarWrapper = document.getElementById("SideBar");
+const TableBoardWrapper = document.getElementById("TableBoard");
 
 let exampleInput = exampleStrings;
 
 let parsedData = parseCommentTable(exampleInput);
 
-console.log(tableDoc);
+let sidebar = "";
 
-console.log(parsedData);
+let contentBody = "";
+
+console.log(WordCount);
