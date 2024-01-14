@@ -1,0 +1,108 @@
+<head>
+    <link rel="icon" href="/static/img/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="/static/css/font.default.css">
+    <link rel="stylesheet" href="/static/css/layouts/layout.default.css">
+    <link rel="stylesheet" href="/static/css/pages/database.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  </head>
+
+<div class="_body">
+    
+<div class="body">
+
+  <!-- Global Bar -->
+  <div style="display:flex; width:100%; align-items: center;">
+    <div is="d-logo" size="50px"></div>
+    <div style="padding-left:32px;"></div>
+    <div style="flex-grow:1;"> 
+      <div is="serachbar">
+        <div style="display:flex; border: 1px solid #769FCD; padding:8px; border-radius: 0px;">
+          <div><span class="material-symbols-outlined">search</span></div>
+          <input style="border:none; width:100%; outline:none; font-size:1rem;">
+        </div>
+      </div>
+    </div>
+    <div style="padding-left:32px;"></div>
+  </div>
+
+  <!-- Header of Contents -->
+  <div style="display:flex; flex-grow:1; flex-direction: column; width:100%;">
+    <div is="d-database-doc" database="ExampleDatabase"></div>
+    <div style="margin-top:16px; margin-bottom: 16px;">
+      <div class="text-1"> ExampleDatabase </div>
+      <div style="display:flex; gap:16px;">
+        <div class="text-4">Cluster Name</div>
+        <div class="text-4"> Shard Name</div>
+      </div>
+    </div>
+
+    <div is="d-table-doc" table="User">
+    </div>
+
+    <div id="TableBoard" style="flex-grow:1;">
+      <div style="display:flex;">
+        <!-- Table Description -->
+        <div style="flex-grow:1;">
+          <div style="padding-bottom: 16px;">
+            <!-- Table Description -->
+            <div style="font-size: 2em; padding-bottom:8px;">User</div>
+            <div style="padding-left: 8px;">
+              This table is only for user. Never use in another service. only read.<br>
+              But only write in user services.
+            </div>
+          </div>
+
+          <div style="padding-bottom: 16px;">
+            <!-- Fields Header -->
+            <div class="text-3" style="padding-bottom:16px;">Fields</div>
+            <!-- Field Description Component -->
+            <div style="padding-left: 8px;">
+              <!-- Field Description Header -->
+              <div style="padding-bottom:8px;">
+                <div class="text-4"> id </div>
+                <div style="font-size:0.9em;">
+                  <span class="col-label">BIGINT(24)</span>
+                  <span class="col-label">UNSIGNED</span>
+                  <span class="col-label">PRIMARY KEY</span>
+                  <span class="col-label">AUTO_INCREMENT</span>
+                </div>
+
+
+
+              </div>
+              <div>
+                This is just for clustred index. don't use for relation.<br>
+                later this database will be sharded
+              </div>
+            </div>
+            <div style="display:flex;">
+
+            </div>
+
+          </div>
+
+        </div>
+        <!-- Table Details -->
+        <div style="flex-grow:1; max-width: 540px;">
+          <div>
+            Table References
+          </div>
+          <div>
+            ERD Table Example
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      footer
+    </div>
+  </div>
+
+</div>
+
+
+
+</div>
+
+<script src="/static/js/index.js"></script>

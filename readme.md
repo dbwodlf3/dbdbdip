@@ -1,6 +1,6 @@
 # sqlDoc
 
-sqlDoc creates a documentation from sql descriptions in your sql code.
+Hello Sql doc
 
 ## Installation
 

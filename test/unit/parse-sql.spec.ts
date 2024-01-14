@@ -20,7 +20,7 @@ describe("Parsing SQL", () => {
     it("Should parse a sql file", async () => {
         const parsed_table = parseCommentTable(
             getRawStrings({
-                inputFilePath: "../example/sqls/table-example.sql",
+                inputFilePath: "../example/mariadb/user/user.table.sql",
                 callerFilePath: __dirname,
             })!
         );
