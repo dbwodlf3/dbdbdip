@@ -8,7 +8,7 @@ import {
     ParsedTableSymbol,
     ParserInputParameter,
     TableDocument,
-} from "./types/common";
+} from "./types/common.js";
 
 export function parseCommentTable(input: string) {
     const strings = input;

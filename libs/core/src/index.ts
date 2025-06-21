@@ -1,1 +1,1 @@
-export { parseCommentTable } from "./parser/comment_parser"
+export { parseCommentTable } from "./parser/comment_parser.js"

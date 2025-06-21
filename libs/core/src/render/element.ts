@@ -1,5 +1,5 @@
 import { render, html, TemplateResult } from 'lit-html';
-import { EventComponent } from './event';
+import { EventComponent } from './event.js';
 
 /**
  * This is Base Component for HTMLElementComponent.

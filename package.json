@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "jest --config ./test/unit/jest-unit.json",
+    "test:core": "jest --config libs/core/test/unit/jest-unit.json",
     "build:client": "",
     "build:client:watch": "npx ts-node ./scripts/build-watch.client",
     "start:server": "npx ts-node ./scripts/start",
@@ -24,6 +24,7 @@
     "libs/*"
   ],
   "devDependencies": {
+    "@types/mongodb": "^4.0.6",
     "ts-node": "^10.9.2"
   }
 }
