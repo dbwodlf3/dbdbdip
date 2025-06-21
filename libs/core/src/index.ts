@@ -1,0 +1,1 @@
+export { parseCommentTable } from "./parser/comment_parser"

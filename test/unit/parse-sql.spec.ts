@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
-import { ParserInputParameter } from "lib/parser/types/common";
-import { parseCommentTable } from "../../src/lib/parser/comment_parser";
+import { ParserInputParameter } from "../../libs/core/parser/types/common";
+import { parseCommentTable } from "../../libs/core/parser/comment_parser";
 
 // Helper
 function getRawStrings(inputString: ParserInputParameter) {
