@@ -6,11 +6,10 @@
             "ES2020",
             "DOM"
         ],
-        "module": "ESNext",
+        "module": "ES2020",
         "removeComments": true,
-        "moduleResolution": "node",
         "strict": true,
-        "outDir": "./dest",
+        "baseUrl": "./src",
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,

@@ -10,8 +10,9 @@
     "test:core": "jest --config libs/core/test/unit/jest-unit.json",
     "build:client": "",
     "build:client:watch": "npx ts-node ./scripts/build-watch.client",
-    "start:server": "npx ts-node ./scripts/start",
-    "start:server:watch": "npx ts-node ./scripts/start-watch"
+    "start:server": "npx ts-node ./scripts/start --projectRoot=./packages/server --main=./packages/server/src/index.ts",
+    "start:server:watch": "npx ts-node ./scripts/start-watch",
+    "start:cli": "npx ts-node ./scripts/start --projectRoot=./packages/cli --main=./packages/cli/src/main.ts"
   },
   "author": "Cogi",
   "license": "MIT",

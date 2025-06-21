@@ -1,6 +1,6 @@
 # dbdbdip
 
-Comment Base Database Document Generator.
+Database Document Generator based on comment.
 
 ## Demo
 

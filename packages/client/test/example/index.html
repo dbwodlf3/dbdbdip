@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<head>
+  <!-- {{ head }} -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="../../dist/static/js/index.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      overflow: scroll;
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+      /* Chrome, Safari */
+    }
+
+
+  /*  */
+  </style>
+</head>
+
+<div id="focus-overlay"></div>
+
+<body>
+  <div
+    style="min-height:100vh; margin:0px; min-height:100vh; display:Flex; flex-direction:column; justfiy-content: center; align-items: center;">
+    <div style="width: 100%;">
+
+    <div style="border-bottom: 1px solid #efefef; display: flex; align-items: center; 
+      justify-content: center; padding: 24px 0px; height: 100%; max-height: 64px; box-sizing: border-box;">
+      <div style="max-width: 1440px; width: 100%;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0px 16px; width:100%;">
+          <a href="#" style="">
+            <!-- {{ headerLogo }} -->
+            <img src="../../assets//imgs//logo.png" style="width: 128px; display: block; overflow: hidden;" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+      <!-- {{ header }} -->
+    </div>
+
+    <div style="width: 100%; 
+      display:flex; flex-direction:column; flex-grow:1; padding: 24px;">
+       <!-- {{ content }} -->
+
+      <table-component id="User"></table-component>
+    </div>
+  </div>
+  <!-- {{ footer }} -->
+</body>
+
+</html>
+
+<script>
+  const tableComponent = document.querySelector('table-component#User');
+  tableComponent.setAttribute('parsed-data', JSON.stringify(
+
+
+{
+    "collectionName": "User",
+    "description": [
+    "Represents a user in the system.",
+    "This interface defines the structure of a user document in the database."
+    ],
+    "fields": [
+    {
+        "fieldName": "_id",
+        "type": "number",
+        "description": [
+        "User Identifier"
+        ]
+    },
+    {
+        "fieldName": "email",
+        "type": "string",
+        "description": [
+        "User email address, this is used for login"
+        ]
+    },
+    {
+        "fieldName": "password",
+        "type": "string",
+        "description": [
+        "User password"
+        ]
+    },
+    {
+        "fieldName": "profile",
+        "type": "{ nickname: string; profileImage?: string; address: { street: string; city: string; country: string; }; }",
+        "description": [
+        "User profile information"
+        ],
+        "fields": [
+        {
+            "fieldName": "nickname",
+            "type": "string",
+            "description": [
+            "User nickname, this is used for display purposes"
+            ]
+        },
+        {
+            "fieldName": "profileImage",
+            "type": "string | undefined",
+            "description": [
+            "User profile image URL, this is used for display purposes"
+            ]
+        },
+        {
+            "fieldName": "address",
+            "type": "{ street: string; city: string; country: string; }",
+            "description": [],
+            "fields": [
+            {
+                "fieldName": "street",
+                "type": "string",
+                "description": [
+                "User street address"
+                ]
+            },
+            {
+                "fieldName": "city",
+                "type": "string",
+                "description": [
+                "User city"
+                ]
+            },
+            {
+                "fieldName": "country",
+                "type": "string",
+                "description": [
+                "User country"
+                ]
+            }
+            ]
+        }
+        ]
+    },
+    {
+        "fieldName": "createdAt",
+        "type": "Date",
+        "description": []
+    }
+    ]
+}
+
+  ));
+</script>

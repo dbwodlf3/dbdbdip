@@ -45,7 +45,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-    return res.render("home.html");
+    return res.render("_index.html");
 });
 
 app.get("/clusters/:clusterId", (req, res) => {

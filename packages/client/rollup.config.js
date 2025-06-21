@@ -11,7 +11,7 @@ export default [{
     watch: true,
     output: {
         sourcemap: true,
-        file: '../server/static/js/index.js',
+        file: './dist/static/js/index.js',
         format: 'iife'
     },
     plugins: [

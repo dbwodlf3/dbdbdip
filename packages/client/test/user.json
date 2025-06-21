@@ -1,0 +1,86 @@
+{
+    "collectionName": "User",
+    "description": [
+    "Represents a user in the system.",
+    "This interface defines the structure of a user document in the database."
+    ],
+    "fields": [
+    {
+        "fieldName": "_id",
+        "type": "number",
+        "description": [
+        "User Identifier"
+        ]
+    },
+    {
+        "fieldName": "email",
+        "type": "string",
+        "description": [
+        "User email address, this is used for login"
+        ]
+    },
+    {
+        "fieldName": "password",
+        "type": "string",
+        "description": [
+        "User password"
+        ]
+    },
+    {
+        "fieldName": "profile",
+        "type": "{ nickname: string; profileImage?: string; address: { street: string; city: string; country: string; }; }",
+        "description": [
+        "User profile information"
+        ],
+        "fields": [
+        {
+            "fieldName": "nickname",
+            "type": "string",
+            "description": [
+            "User nickname, this is used for display purposes"
+            ]
+        },
+        {
+            "fieldName": "profileImage",
+            "type": "string | undefined",
+            "description": [
+            "User profile image URL, this is used for display purposes"
+            ]
+        },
+        {
+            "fieldName": "address",
+            "type": "{ street: string; city: string; country: string; }",
+            "description": [],
+            "fields": [
+            {
+                "fieldName": "street",
+                "type": "string",
+                "description": [
+                "User street address"
+                ]
+            },
+            {
+                "fieldName": "city",
+                "type": "string",
+                "description": [
+                "User city"
+                ]
+            },
+            {
+                "fieldName": "country",
+                "type": "string",
+                "description": [
+                "User country"
+                ]
+            }
+            ]
+        }
+        ]
+    },
+    {
+        "fieldName": "createdAt",
+        "type": "Date",
+        "description": []
+    }
+    ]
+}
