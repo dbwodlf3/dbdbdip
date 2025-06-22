@@ -1,4 +1,4 @@
-import { ParsedField, ParsedInterface } from "libs/types";
+import { ParsedField, ParsedInterface } from "../libs/types";
 
 export class TableComponent extends HTMLElement {
   static get observedAttributes() {

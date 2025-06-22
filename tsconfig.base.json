@@ -13,6 +13,8 @@
         "importHelpers": true,
         "paths": {
             "@core": ["libs/core/src"],
+            "@components": ["packages/client/src"],
+            "@components/*": ["packages/client/src/*"],
         }
     },
     "include":["./**/*.ts"],
