@@ -66,3 +66,17 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/*  */
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

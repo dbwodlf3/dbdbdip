@@ -1,20 +1,90 @@
-import React from 'react';
-import { ReactFlow } from '@xyflow/react';
+import React, { useEffect } from 'react';
+import { ReactFlow, Background, BackgroundVariant, Node } from '@xyflow/react';
  
 import '@xyflow/react/dist/style.css';
+import CollectionCardComponent from './components/CollectionCard';
+import CollectionCardNode from './components/CollectionCardNode';
+import Sidebar from './components/Sidebar';
+import { ParsedTable } from '@components/libs/types';
 
-React
-
-const initialNodes = [
-  { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },
-  { id: '2', position: { x: 0, y: 100 }, data: { label: '2' } },
-];
-const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
  
+const nodeTypes = {
+  collectionCard: CollectionCardNode
+}
+
+const sideBarWidth = 240;
+const headerHeight = 64;
+
 export default function App() {
+  const [nodes, setNodes] = React.useState<Node[]>([]);
+
+  useEffect(() => {
+    Promise.all([
+      fetch('/test/user.db.json'),
+      fetch('/test/book.db.json')
+    ])
+    .then(async ([userResponse, bookResponse]) => {
+      const userDB = await userResponse.json();
+      const bookDB = await bookResponse.json();
+
+      let nodeId = 0;
+      const newNodes: Node[] = [];
+      for(const table of userDB) {
+        nodeId++;
+        newNodes.push({
+          id: String(nodeId),
+          type: 'collectionCard',
+          data: {
+            parsedData: table as ParsedTable,
+          },
+          position: { x: (nodeId-1) * 650 + 36, y: 0 },
+        });
+      }
+
+      setNodes((prevNodes) => [
+        ...prevNodes,
+        ...newNodes,
+      ]);
+
+      console.log(newNodes);
+    });
+    
+  }, []);
+
+
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <ReactFlow nodes={initialNodes} edges={initialEdges} />
+    <div style={{
+      minHeight: '100vh',
+      width: '100vw',
+      margin: 0,
+      display: 'flex',
+      flexDirection: 'column',
+    }}>
+
+    <div style={{ width : '100%', height: headerHeight, }}>
+      <div style={{ borderBottom: '1px solid #efefef', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0px', height: '100%', maxHeight: '64px', boxSizing: 'border-box' }}>
+        <div style={{
+          maxWidth: '1440px', width: '100%'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0px 16px', width: '100%' }}>
+            <a href="#">
+              <img src="./images/logo.png" style={{width:"128px", display: "block", overflow: "hidden"}} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Sidebar width={sideBarWidth + "px"} top={headerHeight + "px"} />
+
+      <div style={{ width: "100vw", height:"100vh", marginLeft: sideBarWidth}}>
+        <ReactFlow nodes={nodes} nodeTypes={nodeTypes} width={ 1000 } height={1000}>
+          <Background variant={BackgroundVariant.Lines} />
+        </ReactFlow>
+      </div>
+
+
+    <div> Footer </div>
     </div>
   );
 }

@@ -1,0 +1,205 @@
+[
+    {
+        "collectionName": "User",
+        "description": [
+            "Represents a user in the system.",
+            "This interface defines the structure of a user document in the database."
+        ],
+        "fields": [
+            {
+                "fieldName": "_id",
+                "type": "number",
+                "description": [
+                    "User Identifier"
+                ]
+            },
+            {
+                "fieldName": "email",
+                "type": "string",
+                "description": [
+                    "User email address, this is used for login"
+                ]
+            },
+            {
+                "fieldName": "password",
+                "type": "string",
+                "description": [
+                    "User password"
+                ]
+            },
+            {
+                "fieldName": "profile",
+                "type": "{ nickname: string; profileImage?: string; address: { street: string; city: string; country: string; }; }",
+                "description": [
+                    "User profile information"
+                ],
+                "fields": [
+                    {
+                        "fieldName": "nickname",
+                        "type": "string",
+                        "description": [
+                            "User nickname, this is used for display purposes"
+                        ]
+                    },
+                    {
+                        "fieldName": "profileImage",
+                        "type": "string | undefined",
+                        "description": [
+                            "User profile image URL, this is used for display purposes"
+                        ]
+                    },
+                    {
+                        "fieldName": "address",
+                        "type": "{ street: string; city: string; country: string; }",
+                        "description": [],
+                        "fields": [
+                            {
+                                "fieldName": "street",
+                                "type": "string",
+                                "description": [
+                                    "User street address"
+                                ]
+                            },
+                            {
+                                "fieldName": "city",
+                                "type": "string",
+                                "description": [
+                                    "User city"
+                                ]
+                            },
+                            {
+                                "fieldName": "country",
+                                "type": "string",
+                                "description": [
+                                    "User country"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fieldName": "createdAt",
+                "type": "Date",
+                "description": []
+            }
+        ]
+    },
+    {
+        "collectionName": "UserToken",
+        "description": [
+            "Represents a token issued to a user for authentication.",
+            "This interface defines the structure of a user token document in the database."
+        ],
+        "fields": [
+            {
+                "fieldName": "_id",
+                "type": "number",
+                "description": [
+                    "Token Identifier"
+                ]
+            },
+            {
+                "fieldName": "userId",
+                "type": "number",
+                "description": [
+                    "The ID of the user to whom this token belongs"
+                ]
+            },
+            {
+                "fieldName": "tokenType",
+                "type": "\"AccessToken\" | \"RefreshToken\"",
+                "description": [
+                    "The type of token (AccessToken or RefreshToken)"
+                ]
+            },
+            {
+                "fieldName": "token",
+                "type": "string",
+                "description": [
+                    "The actual token string"
+                ]
+            },
+            {
+                "fieldName": "ipv4",
+                "type": "string | undefined",
+                "description": [
+                    "The IPv4 address from which the token was issued"
+                ]
+            },
+            {
+                "fieldName": "ipv6",
+                "type": "string | undefined",
+                "description": [
+                    "The IPv6 address from which the token was issued"
+                ]
+            },
+            {
+                "fieldName": "createdAt",
+                "type": "Date",
+                "description": []
+            },
+            {
+                "fieldName": "expiresAt",
+                "type": "Date",
+                "description": []
+            }
+        ]
+    },
+    {
+        "collectionName": "UserTokenHistory",
+        "description": [
+            "Represents the history of token issuance for a user.",
+            "This interface defines the structure of a user token history document in the database."
+        ],
+        "fields": [
+            {
+                "fieldName": "_id",
+                "type": "number",
+                "description": [
+                    "History Identifier"
+                ]
+            },
+            {
+                "fieldName": "userId",
+                "type": "number",
+                "description": [
+                    "The ID of the user to whom this token belongs"
+                ]
+            },
+            {
+                "fieldName": "tokenId",
+                "type": "number",
+                "description": [
+                    "The ID of the token that was issued"
+                ]
+            },
+            {
+                "fieldName": "action",
+                "type": "\"IssueAccessToken\" | \"IssueRefreshToken\"",
+                "description": [
+                    "The action performed (IssueAccessToken or IssueRefreshToken)"
+                ]
+            },
+            {
+                "fieldName": "ipv4",
+                "type": "string | undefined",
+                "description": [
+                    "The IPv4 address from which the token was issued"
+                ]
+            },
+            {
+                "fieldName": "ipv6",
+                "type": "string | undefined",
+                "description": [
+                    "The IPv6 address from which the token was issued"
+                ]
+            },
+            {
+                "fieldName": "createdAt",
+                "type": "Date",
+                "description": []
+            }
+        ]
+    }
+]

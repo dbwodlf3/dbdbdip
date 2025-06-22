@@ -1,4 +1,4 @@
-import { ParsedField, ParsedInterface } from "../libs/types";
+import { ParsedField, ParsedTable } from "../libs/types";
 
 export class TableComponent extends HTMLElement {
   static get observedAttributes() {
@@ -12,7 +12,7 @@ export class TableComponent extends HTMLElement {
     }
   }
 
-  parsedData?: ParsedInterface;
+  parsedData?: ParsedTable;
 
   constructor() {
     super();
@@ -32,7 +32,12 @@ export class TableComponent extends HTMLElement {
         <div class="field-header" ${hasChildren ? 'role="button" aria-expanded="false" onclick="this.parentNode.classList.toggle(\'expanded\')"' : ''}>
           <span class="field-name" style="flex-grow:1;">${field.fieldName}</span>
           <span class="field-type">${field.type.length < 8 ? field.type : "Object"}</span>
-          ${hasChildren ? '<span class="toggle-icon" style="padding-left: 16px;">▶</span>' : ''}
+          ${hasChildren ? `
+            <span class="toggle-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24">
+                <polyline points="9 6 15 12 9 18" fill="none" stroke="#333" stroke-width="2"/>
+              </svg>
+            </span>` : ''}
         </div>
         ${description ? `<p class="field-description">${description}</p>` : ''}
         ${hasChildren ? `
@@ -44,7 +49,7 @@ export class TableComponent extends HTMLElement {
     `;
   }
 
-  setParsedData(data: ParsedInterface) {
+  setParsedData(data: ParsedTable) {
     this.parsedData = data;
     this.render();
   }
@@ -117,6 +122,7 @@ export class TableComponent extends HTMLElement {
           margin-left: auto;
           font-size: 0.9em;
           transition: transform 0.2s;
+          transform-origin: center; /* 추가: 중심 기준으로 회전 */
         }
 
         .field-group.expanded > .field-header > .toggle-icon {

@@ -1,7 +1,9 @@
-export interface ParsedInterface {
+export interface ParsedTable {
   collectionName: string;
   description: string[];
   fields: ParsedField[];
+  
+  [key: string]: unknown;
 }
 
 export interface ParsedField {

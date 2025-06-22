@@ -1,0 +1,146 @@
+[
+    {
+        "collectionName": "Book",
+        "description": [
+            "Represents a book in the video store.",
+            "This interface defines the structure of a book document in the database."
+        ],
+        "fields": [
+            {
+                "fieldName": "_id",
+                "type": "number",
+                "description": [
+                    "Book Identifier"
+                ]
+            },
+            {
+                "fieldName": "userId",
+                "type": "number",
+                "description": [
+                    "The ID of the user who owns the book"
+                ]
+            },
+            {
+                "fieldName": "language",
+                "type": "string",
+                "description": [
+                    "The language of the book"
+                ]
+            },
+            {
+                "fieldName": "title",
+                "type": "string",
+                "description": [
+                    "The title of the book"
+                ]
+            },
+            {
+                "fieldName": "description",
+                "type": "string",
+                "description": [
+                    "A brief description of the book"
+                ]
+            },
+            {
+                "fieldName": "bookCover",
+                "type": "string",
+                "description": [
+                    "The URL of the book cover image"
+                ]
+            },
+            {
+                "fieldName": "isDeleted",
+                "type": "boolean",
+                "description": [
+                    "Indicates whether the book is deleted"
+                ]
+            },
+            {
+                "fieldName": "isPrivate",
+                "type": "boolean",
+                "description": [
+                    "Indicates whether the book is private"
+                ]
+            },
+            {
+                "fieldName": "createdAt",
+                "type": "Date",
+                "description": [
+                    "The date and time when the book was created"
+                ]
+            }
+        ]
+    },
+    {
+        "collectionName": "Page",
+        "description": [
+            "Represents a page in a book.",
+            "This interface defines the structure of a page document in the database."
+        ],
+        "fields": [
+            {
+                "fieldName": "_id",
+                "type": "number",
+                "description": [
+                    "Page Identifier"
+                ]
+            },
+            {
+                "fieldName": "bookId",
+                "type": "number",
+                "description": [
+                    "The ID of the book to which this page belongs"
+                ]
+            },
+            {
+                "fieldName": "userId",
+                "type": "number",
+                "description": [
+                    "The ID of the user who owns the page"
+                ]
+            },
+            {
+                "fieldName": "title",
+                "type": "string",
+                "description": [
+                    "The title of the page"
+                ]
+            },
+            {
+                "fieldName": "content",
+                "type": "string",
+                "description": [
+                    "The content of the page"
+                ]
+            },
+            {
+                "fieldName": "isDeleted",
+                "type": "boolean",
+                "description": [
+                    "Indicates whether the page is deleted"
+                ]
+            },
+            {
+                "fieldName": "createdAt",
+                "type": "Date",
+                "description": [
+                    "The date and time when the page was created"
+                ]
+            },
+            {
+                "fieldName": "updatedAt",
+                "type": "Date",
+                "description": [
+                    "The date and time when the page was last updated"
+                ]
+            },
+            {
+                "fieldName": "publishedAt",
+                "type": "Date",
+                "description": [
+                    "The date and time when the page was published"
+                ]
+            }
+        ]
+    }
+]
