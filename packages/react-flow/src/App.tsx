@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ReactFlow, Background, BackgroundVariant, Node } from '@xyflow/react';
  
 import '@xyflow/react/dist/style.css';
@@ -15,8 +15,23 @@ const nodeTypes = {
 const sideBarWidth = 240;
 const headerHeight = 64;
 
+export const globalVars = {
+  finRendering : false as any,
+  setFinRendering: 0 as any,
+  nodeItems: 0
+}
+
 export default function App() {
   const [nodes, setNodes] = React.useState<Node[]>([]);
+  const [finRendering, setFinRendering] = useState(false)
+
+  globalVars.finRendering = finRendering;
+  globalVars.setFinRendering = setFinRendering;
+  const nodeRefs = React.useRef<{ [id: string]: HTMLDivElement | null }>({});
+
+  const setNodeRef = (id: string) => (el: HTMLDivElement | null) => {
+    nodeRefs.current[id] = el;
+  };
 
   useEffect(() => {
     Promise.all([
@@ -36,21 +51,34 @@ export default function App() {
           type: 'collectionCard',
           data: {
             parsedData: table as ParsedTable,
+            setRef: setNodeRef(String(nodeId)),
           },
-          position: { x: (nodeId-1) * 650 + 36, y: 0 },
+          position: { x: 0, y: 0 },
         });
       }
-
+      globalVars.nodeItems = newNodes.length;
       setNodes((prevNodes) => [
-        ...prevNodes,
         ...newNodes,
       ]);
-
-      console.log(newNodes);
     });
     
   }, []);
 
+  useEffect(()=>{
+    if (nodes.length === 0) return;
+    let x = 36, y = 36;
+    let beforeX = 0;
+    let beforeY = 0;
+    const updateNodes = nodes.map((node)=>{
+      const el = nodeRefs.current[node.id];
+      const width = el ? el.offsetWidth : 0;
+      const height = el ? el.offsetHeight : 0;
+      const newNode = { ...node, position: { x: beforeX + x, y: y } };
+      beforeX += width + x;
+      return newNode;
+    })
+    setNodes(updateNodes);
+  }, [globalVars.finRendering]);
 
   return (
     <div style={{
